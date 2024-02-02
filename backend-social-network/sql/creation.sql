@@ -1,5 +1,5 @@
--- DROP TABLE IF EXISTS users_x_comments
--- DORP TABLE IF EXISTS users_x_publications
+-- DROP TABLE IF EXISTS users_x_comments;
+-- DORP TABLE IF EXISTS users_x_publications;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS publications;
 DROP TABLE IF EXISTS users;
@@ -36,12 +36,12 @@ CREATE TABLE IF NOT EXISTS comments (
 --     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
 --     post_id_liked uuid REFERENCES publications(id),
 --     user_id uuid REFERENCES users(id),
---     liked BOOLEAN DEFAULT TRUE
+--     liked BOOLEAN 
 -- );
 
 -- CREATE TABLE IF NOT EXISTS users_x_comments (
 --     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
 --     comment_id_liked uuid REFERENCES comments(id),
 --     user_id uuid REFERENCES users(id),
---     liked BOOLEAN DEFAULT TRUE
--- )
+--     liked BOOLEAN 
+-- );
