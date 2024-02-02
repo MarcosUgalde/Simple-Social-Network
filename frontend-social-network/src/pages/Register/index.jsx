@@ -56,7 +56,7 @@ function Register() {
         <Styled.Footer>
         <p>¿Ya tienes una cuenta?</p> 
         <Styled.Signup>
-          <Styled.Anchor href=''>Accede aquí</Styled.Anchor>
+          <Styled.Anchor href='/login'>Accede aquí</Styled.Anchor>
         </Styled.Signup>
       </Styled.Footer>
         </Styled.Body>
