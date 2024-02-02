@@ -2,6 +2,7 @@ const {
   insertPublication,
   selectPublicationsByUser,
   selectPublications,
+  selectOnePublication,
 } = require("./queries");
 
 const addPublication = (db) => async (title, post_text, posted_by) => {
@@ -56,8 +57,27 @@ const getPublications = (db) => async () => {
   }
 };
 
+const getOnePublication = (db) => async (id) => {
+  try {
+    const response = await db.query(selectOnePublication(id));
+
+    return {
+      ok: true,
+      data: response.rows,
+    };
+  } catch (error) {
+    console.info("Get one publication error: ", error.message);
+
+    return {
+      ok: true,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   addPublication,
   getPublicationsByUser,
   getPublications,
+  getOnePublication,
 };

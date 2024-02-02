@@ -7,9 +7,14 @@ module.exports = (db) => {
   router.post("/new", authorizer(), publicationControllers.addPublication(db));
   router.get("/all", authorizer(), publicationControllers.getPublications(db));
   router.get(
-    "/:username/all",
+    "/all/:username",
     authorizer(),
     publicationControllers.getPublicationsByUser(db)
+  );
+  router.get(
+    "/:id",
+    authorizer(),
+    publicationControllers.getOnePublication(db)
   );
 
   return router;
