@@ -1,4 +1,4 @@
-const { insertPublication } = require("./queries");
+const { insertPublication, selectPublicationsByUser } = require("./queries");
 
 const addPublication = (db) => async (title, post_text, posted_by) => {
   try {
@@ -16,6 +16,25 @@ const addPublication = (db) => async (title, post_text, posted_by) => {
   }
 };
 
+const getPublicationsByUser = (db) => async (username) => {
+  try {
+    const response = await db.query(selectPublicationsByUser(username));
+
+    return {
+      ok: true,
+      data: response.rows,
+    };
+  } catch (error) {
+    console.info("Select publications by user error: ", error.message);
+
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   addPublication,
+  getPublicationsByUser,
 };

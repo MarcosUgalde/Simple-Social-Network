@@ -8,6 +8,14 @@ INSERT INTO publications (
     )
 `;
 
+const selectPublicationsByUser = (username) => sql.unsafe`
+        SELECT * FROM publications
+        JOIN users
+        ON users.id = publications.posted_by
+        WHERE username = ${username}
+`;
+
 module.exports = {
   insertPublication,
+  selectPublicationsByUser,
 };
