@@ -15,7 +15,12 @@ const selectPublicationsByUser = (username) => sql.unsafe`
         WHERE username = ${username}
 `;
 
+const selectPublications = () => sql.unsafe`
+        SELECT * FROM publications
+`;
+
 module.exports = {
   insertPublication,
   selectPublicationsByUser,
+  selectPublications,
 };

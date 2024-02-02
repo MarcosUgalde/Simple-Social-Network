@@ -1,4 +1,8 @@
-const { insertPublication, selectPublicationsByUser } = require("./queries");
+const {
+  insertPublication,
+  selectPublicationsByUser,
+  selectPublications,
+} = require("./queries");
 
 const addPublication = (db) => async (title, post_text, posted_by) => {
   try {
@@ -34,7 +38,26 @@ const getPublicationsByUser = (db) => async (username) => {
   }
 };
 
+const getPublications = (db) => async () => {
+  try {
+    const response = await db.query(selectPublications());
+
+    return {
+      ok: true,
+      data: response.rows,
+    };
+  } catch (error) {
+    console.info("Get publications error: ", error.message);
+
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   addPublication,
   getPublicationsByUser,
+  getPublications,
 };
