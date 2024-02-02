@@ -1,5 +1,6 @@
 import Styled from './styles'
 import { usePublications } from "../../hooks"
+import NavBar from '../../components/Navbar'
 
 const Feed = () => {
     const { data: response, isLoading } = usePublications()
@@ -9,6 +10,7 @@ const Feed = () => {
 
     return (
         <>
+            <NavBar />
             <h1>hello word</h1>
             <Styled.List>
                 {response?.content?.map((publication) => {
