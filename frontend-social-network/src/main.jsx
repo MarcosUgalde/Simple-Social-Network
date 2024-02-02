@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import Register from './pages/Register/index.jsx'
 
 const Main = () => {
   return (
-    <App />
+    <Register />
   )
 }
 
