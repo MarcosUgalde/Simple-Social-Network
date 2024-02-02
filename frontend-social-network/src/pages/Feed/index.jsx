@@ -1,3 +1,4 @@
+import Styled from './styles'
 import { usePublications } from "../../hooks"
 
 const Feed = () => {
@@ -9,13 +10,15 @@ const Feed = () => {
     return (
         <>
             <h1>hello word</h1>
-            <ul>
+            <Styled.List>
                 {response?.content?.map((publication) => {
                     return (
-                        <li>{publication.title} -  Liked by: {publication.likes} people</li>
+                        <section>
+                            <li>{publication.title} - Liked by: {publication.likes} people</li>
+                        </section>
                     )
                 })}
-            </ul>
+            </Styled.List>
         </>
     )
 }
