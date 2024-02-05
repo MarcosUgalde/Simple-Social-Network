@@ -6,7 +6,11 @@ const Publication = () => {
     console.log('Publication: ', publication)
     
     return (
-        <>hello world</>
+        <>
+            <h1>{publication?.data?.content[0]?.title}</h1>
+            <p>{publication?.data?.content[0]?.post_text}</p>
+            <p>{publication?.data?.content[0]?.posted_by}</p>
+        </>
     )
 }
 
