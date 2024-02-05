@@ -16,7 +16,7 @@ const Feed = () => {
                 {response?.content?.map((publication) => {
                     return (
                         <section>
-                            <li>{publication.title} - Liked by: {publication.likes} people</li>
+                            <li> <a href={`/post/${publication.id}`}>{publication.title}</a> - Liked by: {publication.likes} people</li>
                         </section>
                     )
                 })}
