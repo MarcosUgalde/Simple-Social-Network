@@ -3,8 +3,10 @@ const { authorizer } = require("../middlewares");
 
 const userControllers = require("../controllers/user");
 
-module.exports = () => {
+module.exports = (db) => {
   router.get("/", authorizer(), userControllers.getUser());
+  //   router.get("/all", authorizer(), userControllers.getAllUsers(db));
+  router.get("/:username", authorizer(), userControllers.getByUsername(db));
 
   return router;
 };

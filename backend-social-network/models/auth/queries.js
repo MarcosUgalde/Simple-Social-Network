@@ -13,7 +13,7 @@ const selectUser = (email) => sql.unsafe`
         WHERE email = ${email}
 `;
 
-const selectUserByUsername = (username) => sql`
+const selectUserByUsername = (username) => sql.unsafe`
         SELECT * FROM users
         WHERE username = ${username}
 `;
