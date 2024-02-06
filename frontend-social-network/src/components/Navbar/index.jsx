@@ -35,7 +35,7 @@ const NavBar = () => {
                 <Styled.User onClick={toggleDropDown}>{data?.username}</Styled.User>
                 {isDropDOwnOpen && (
                     <Styled.Dropdown>
-                        <li>View profile</li>
+                        <CustomLink href='/my-profile'>View profile</CustomLink>
                         <li onClick={handleLogoutClick}>Logout</li>
                     </Styled.Dropdown>
                 )}

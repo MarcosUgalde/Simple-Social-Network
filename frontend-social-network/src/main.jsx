@@ -7,6 +7,7 @@ import Login from './pages/Login/index.jsx'
 import Guard from './components/Guard/index.jsx'
 import Feed from './pages/Feed/index.jsx'
 import Publication from './pages/Publication/index.jsx'
+import MyProfile from './pages/MyProfile/index.jsx'
 
 const Main = () => {
   return (
@@ -19,6 +20,9 @@ const Main = () => {
         </Route>
         <Route path='/post/:id'>
           <Guard component={Publication} />
+        </Route>
+        <Route path='/my-profile'>
+          <Guard component={MyProfile} />
         </Route>
         <Redirect to='/login' />
       </Switch>
