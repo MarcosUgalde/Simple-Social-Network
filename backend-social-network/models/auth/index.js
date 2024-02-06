@@ -56,9 +56,9 @@ const getUser = (db) => async (email, compareFn) => {
   }
 };
 
-const getUserByUsername = (db) => async (username) => {
+const getUserByUsername = (db) => async (id) => {
   try {
-    const response = await db.query(selectUserByUsername(username));
+    const response = await db.query(selectUserByUsername(id));
 
     return {
       ok: true,

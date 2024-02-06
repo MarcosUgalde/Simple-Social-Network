@@ -6,7 +6,7 @@ const userControllers = require("../controllers/user");
 module.exports = (db) => {
   router.get("/", authorizer(), userControllers.getUser());
   //   router.get("/all", authorizer(), userControllers.getAllUsers(db));
-  router.get("/:username", authorizer(), userControllers.getByUsername(db));
+  router.get("/:id", authorizer(), userControllers.getByUsername(db));
 
   return router;
 };

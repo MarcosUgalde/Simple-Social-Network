@@ -13,9 +13,9 @@ const selectUser = (email) => sql.unsafe`
         WHERE email = ${email}
 `;
 
-const selectUserByUsername = (username) => sql.unsafe`
+const selectUserByUsername = (id) => sql.unsafe`
         SELECT * FROM users
-        WHERE username = ${username}
+        WHERE id = ${id}
 `;
 
 const selectAllUsers = (input) => sql.unsafe`
