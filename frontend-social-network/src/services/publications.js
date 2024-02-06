@@ -19,3 +19,14 @@ export const selectOnePublication = (client) => async (id) => {
     return null;
   }
 };
+
+export const selectAuthorInformation = (client) => async (id) => {
+  try {
+    const { data: response } = await client.get(`user/${id}`);
+    console.info("Author data: ", response);
+    return response;
+  } catch (error) {
+    console.info("Fetch author info error: ", error.message);
+    return null;
+  }
+};
