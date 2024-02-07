@@ -24,9 +24,18 @@ const selectOnePublication = (id) => sql.unsafe`
         WHERE id = ${id}
 `;
 
+const insertLike = (post_id_liked, user_id, liked) => sql.unsafe`
+        INSERT INTO users_x_publications (
+                post_id_liked, user_id, liked
+        ) VALUES (
+                ${post_id_liked}, ${user_id}, ${liked}
+        )
+`;
+
 module.exports = {
   insertPublication,
   selectPublicationsByUser,
   selectPublications,
   selectOnePublication,
+  insertLike,
 };

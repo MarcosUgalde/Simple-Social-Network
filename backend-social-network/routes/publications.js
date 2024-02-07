@@ -5,6 +5,11 @@ const publicationControllers = require("../controllers/publications");
 
 module.exports = (db) => {
   router.post("/new", authorizer(), publicationControllers.addPublication(db));
+  router.post(
+    "/like/:post_id_liked",
+    authorizer(),
+    publicationControllers.addLike(db)
+  );
   router.get("/all", authorizer(), publicationControllers.getPublications(db));
   router.get(
     "/all/:username",
