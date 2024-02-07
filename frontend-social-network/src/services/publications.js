@@ -30,3 +30,27 @@ export const selectAuthorInformation = (client) => async (id) => {
     return null;
   }
 };
+
+export const insertLike = (client) => async (id) => {
+  try {
+    const { data: response } = await client.post(`/publications/like/${id}`);
+    console.info("Insert like data: ", response);
+    return response;
+  } catch (error) {
+    console.info("Insert like error: ", error.message);
+    return null;
+  }
+};
+
+export const increaseLike = (client) => async (id) => {
+  try {
+    const { data: response } = await client.post(
+      `publications/like/add-one/${id}`
+    );
+    console.info("Increase one like service data: ", response);
+    return response;
+  } catch (error) {
+    console.info("Increase one like service error: ", error.message);
+    return null;
+  }
+};

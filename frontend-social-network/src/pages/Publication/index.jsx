@@ -17,6 +17,7 @@ const Publication = () => {
             <p>{publication?.data?.content[0]?.post_text}</p>
             <p>Liked by {publication?.data?.content[0]?.likes} people</p>
             <p>{author?.data?.content[0]?.username}</p>
+            <button>Like</button>
         </>
     )
 }

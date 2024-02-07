@@ -5,6 +5,8 @@ import {
   selectPublications,
   selectOnePublication,
   selectAuthorInformation,
+  insertLike,
+  increaseLike,
 } from "./publications";
 
 const client = axios.create({
@@ -26,6 +28,8 @@ const publications = {
   getPublications: selectPublications(client),
   getOnePublication: selectOnePublication(client),
   getAuthor: selectAuthorInformation(client),
+  addLike: insertLike(client),
+  addOneLike: increaseLike(client),
 };
 
 export { auth, user, publications };
