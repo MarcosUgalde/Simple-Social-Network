@@ -4,6 +4,7 @@ const {
   selectPublications,
   selectOnePublication,
   insertLike,
+  insertOneLike,
 } = require("./queries");
 
 const addPublication = (db) => async (title, post_text, posted_by) => {
@@ -94,10 +95,29 @@ const addLike = (db) => async (post_id_liked, user_id, liked) => {
   }
 };
 
+const addOneLike = (db) => async (id) => {
+  try {
+    const response = await db.query(insertOneLike(id));
+
+    return {
+      ok: true,
+      data: response.rows,
+    };
+  } catch (error) {
+    console.info("Add one like error: ", error.message);
+
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   addPublication,
   getPublicationsByUser,
   getPublications,
   getOnePublication,
   addLike,
+  addOneLike,
 };

@@ -32,10 +32,17 @@ const insertLike = (post_id_liked, user_id, liked) => sql.unsafe`
         )
 `;
 
+const insertOneLike = (id) => sql.unsafe`
+        UPDATE publications
+        SET likes = likes + 1
+        WHERE id = ${id}
+`;
+
 module.exports = {
   insertPublication,
   selectPublicationsByUser,
   selectPublications,
   selectOnePublication,
   insertLike,
+  insertOneLike,
 };
