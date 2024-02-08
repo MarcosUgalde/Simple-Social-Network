@@ -35,6 +35,7 @@ export const insertLike = (client) => async (id) => {
   try {
     const { data: response } = await client.post(`/publications/like/${id}`);
     console.info("Insert like data: ", response);
+    console.log("id sent in service", id);
     return response;
   } catch (error) {
     console.info("Insert like error: ", error.message);

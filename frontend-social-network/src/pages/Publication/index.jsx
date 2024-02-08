@@ -1,5 +1,5 @@
 import NavBar from "../../components/Navbar"
-import { useAuthor, useId, useOnePublication } from "../../hooks"
+import { useAuthor, useId, useLike, useOnePublication } from "../../hooks"
 
 const Publication = () => {
     const id = useId()
@@ -9,6 +9,14 @@ const Publication = () => {
 
     const author = useAuthor({ authorId: postedById })
     console.log('Author: ', author)
+
+    const addLike = useLike({ publicationId: id })
+    console.log('Add Like data: ', addLike)
+
+    const handleLikeClick = async() => {
+        
+        await addLike
+    }
     
     return (
         <>
@@ -17,7 +25,7 @@ const Publication = () => {
             <p>{publication?.data?.content[0]?.post_text}</p>
             <p>Liked by {publication?.data?.content[0]?.likes} people</p>
             <p>{author?.data?.content[0]?.username}</p>
-            <button>Like</button>
+            <button onClick={handleLikeClick}>Like</button>
         </>
     )
 }
