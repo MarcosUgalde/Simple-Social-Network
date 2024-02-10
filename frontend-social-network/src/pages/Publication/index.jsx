@@ -10,12 +10,11 @@ const Publication = () => {
     const author = useAuthor({ authorId: postedById })
     console.log('Author: ', author)
 
-    const addLike = useLike({ publicationId: id })
-    console.log('Add Like data: ', addLike)
+    const doLike = useLike({ publicationId: id })
+    // console.log('Add Like data: ', addLike)
 
-    const handleLikeClick = async() => {
-        
-        await addLike
+    const handleLikeClick = async() => { 
+        await doLike()
     }
     
     return (
