@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS users_x_publications (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     post_id_liked uuid REFERENCES publications(id),
     user_id uuid REFERENCES users(id),
-    liked BOOLEAN 
+    liked BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE IF NOT EXISTS users_x_comments (

@@ -117,6 +117,27 @@ const addOneLike = (db) => async (id) => {
   }
 };
 
+const increaseLike = (db) => async (post_id_liked, user_id) => {
+  try {
+    console.log("post_id_liked in models index: ", post_id_liked);
+    console.log("user_id in models index: ", user_id);
+    await db.query(insertLike(post_id_liked, user_id, (liked = true)));
+
+    await db.query(insertOneLike(post_id_liked));
+
+    return {
+      ok: true,
+      message: "Correctly submited like",
+    };
+  } catch (error) {
+    console.info("Increase Like Error: ", error.message);
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   addPublication,
   getPublicationsByUser,
@@ -124,4 +145,5 @@ module.exports = {
   getOnePublication,
   addLike,
   addOneLike,
+  increaseLike,
 };
