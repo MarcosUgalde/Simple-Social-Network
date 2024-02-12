@@ -23,7 +23,6 @@ function UpdatePost () {
                 <input type="text" name="post_text" id="post_text" {...register('post_text', {required: true})} defaultValue={publication?.data?.content[0]?.post_text} />
                 <input type="submit" value='Save changes' />
             </form>
-            Hello world
         </>
     )
 }
