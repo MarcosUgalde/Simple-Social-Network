@@ -6,3 +6,4 @@ export { useId } from "./useId";
 export { useAuthor } from "./useAuthor";
 export { useLike } from "./useLike";
 export { useOneLike } from "./useOneLike";
+export { usePublicationUpdate } from "./usePublicationUpdate";

@@ -55,3 +55,17 @@ export const increaseLike = (client) => async (id) => {
     return null;
   }
 };
+
+export const updatePublication = (client) => async (params) => {
+  try {
+    const { data } = await client.put(
+      `publications/${params.publicationId}`,
+      params
+    );
+    console.info("Publication update service updated correctly the post");
+    return data;
+  } catch (error) {
+    console.info("Update service error: ", error.message);
+    return { success: false };
+  }
+};
