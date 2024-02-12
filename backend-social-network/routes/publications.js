@@ -10,11 +10,6 @@ module.exports = (db) => {
     authorizer(),
     publicationControllers.addOneLike(db)
   );
-  // router.post(
-  //   "/like/:post_id_liked",
-  //   authorizer(),
-  //   publicationControllers.addLike(db)
-  // );
   router.post(
     "/like/:post_id_liked",
     authorizer(),
@@ -30,6 +25,12 @@ module.exports = (db) => {
     "/:id",
     authorizer(),
     publicationControllers.getOnePublication(db)
+  );
+
+  router.put(
+    "/:id",
+    authorizer(),
+    publicationControllers.updatePublication(db)
   );
 
   return router;

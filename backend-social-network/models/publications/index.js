@@ -5,6 +5,7 @@ const {
   selectOnePublication,
   insertLike,
   insertOneLike,
+  updatePublication,
 } = require("./queries");
 
 const addPublication = (db) => async (title, post_text, posted_by) => {
@@ -138,6 +139,23 @@ const increaseLike = (db) => async (post_id_liked, user_id) => {
   }
 };
 
+const editPublication = (db) => async (title, post_text, id) => {
+  try {
+    await db.query(updatePublication(title, post_text, id));
+
+    return {
+      ok: true,
+      message: "Publication updated",
+    };
+  } catch (error) {
+    console.info("Update publication error: ", error.message);
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   addPublication,
   getPublicationsByUser,
@@ -146,4 +164,5 @@ module.exports = {
   addLike,
   addOneLike,
   increaseLike,
+  editPublication,
 };
