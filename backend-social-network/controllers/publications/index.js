@@ -7,4 +7,5 @@ module.exports = {
   addOneLike: require("./addOneLike"),
   insertLike: require("./add-like"),
   updatePublication: require("./update-publication"),
+  deletePublication: require("./delete-publication"),
 };

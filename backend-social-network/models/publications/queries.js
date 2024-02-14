@@ -45,6 +45,16 @@ const updatePublication = (title, post_text, id) => sql.unsafe`
                 WHERE id = ${id}
 `;
 
+const deletePublication = (id) => sql.unsafe`
+                DELETE FROM publications
+                WHERE id = ${id}
+`;
+
+const deleteUserXPublication = (id) => sql.unsafe`
+                DELETE FROM users_x_publications
+                WHERE post_id_liked = ${id}
+`;
+
 module.exports = {
   insertPublication,
   selectPublicationsByUser,
@@ -53,4 +63,6 @@ module.exports = {
   insertLike,
   insertOneLike,
   updatePublication,
+  deletePublication,
+  deleteUserXPublication,
 };

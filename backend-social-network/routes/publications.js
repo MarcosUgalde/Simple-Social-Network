@@ -33,5 +33,10 @@ module.exports = (db) => {
     publicationControllers.updatePublication(db)
   );
 
+  router.delete(
+    "/:id",
+    authorizer(),
+    publicationControllers.deletePublication(db)
+  );
   return router;
 };

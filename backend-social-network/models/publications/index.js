@@ -6,6 +6,8 @@ const {
   insertLike,
   insertOneLike,
   updatePublication,
+  deletePublication,
+  deleteUserXPublication,
 } = require("./queries");
 
 const addPublication = (db) => async (title, post_text, posted_by) => {
@@ -156,6 +158,25 @@ const editPublication = (db) => async (title, post_text, id) => {
   }
 };
 
+const eliminatePublication = (db) => async (id) => {
+  try {
+    await db.query(deleteUserXPublication(id));
+
+    await db.query(deletePublication(id));
+
+    return {
+      ok: true,
+      message: "Publication deleted",
+    };
+  } catch (error) {
+    console.info("Publication delete error: ", error.message);
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   addPublication,
   getPublicationsByUser,
@@ -165,4 +186,5 @@ module.exports = {
   addOneLike,
   increaseLike,
   editPublication,
+  eliminatePublication,
 };
