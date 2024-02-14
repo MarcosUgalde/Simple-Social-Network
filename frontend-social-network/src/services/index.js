@@ -8,6 +8,7 @@ import {
   insertLike,
   increaseLike,
   updatePublication,
+  deletePublication,
 } from "./publications";
 
 const client = axios.create({
@@ -32,6 +33,7 @@ const publications = {
   addLike: insertLike(client),
   addOneLike: increaseLike(client),
   updatePublication: updatePublication(client),
+  deletePublication: deletePublication(client),
 };
 
 export { auth, user, publications };

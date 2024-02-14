@@ -69,3 +69,17 @@ export const updatePublication = (client) => async (params) => {
     return { success: false };
   }
 };
+
+export const deletePublication = (client) => async (params) => {
+  try {
+    const { data } = await client.delete(
+      `publications/${params.publicationId}`,
+      params
+    );
+    console.info("Publication delete service deleted the post");
+    return data;
+  } catch (error) {
+    console.info("Delete post service error: ", error.message);
+    return { success: false };
+  }
+};
