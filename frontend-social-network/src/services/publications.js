@@ -72,12 +72,22 @@ export const updatePublication = (client) => async (params) => {
 
 export const deletePublication = (client) => async (params) => {
   try {
-    console.log("params in delete service: ", params);
     const { data } = await client.delete(`publications/${params}`, params);
     console.info("Publication delete service deleted the post");
     return data;
   } catch (error) {
     console.info("Delete post service error: ", error.message);
+    return { success: false };
+  }
+};
+
+export const insertPublication = (client) => async (params) => {
+  try {
+    const { data } = await client.post(`publications/new`, params);
+    console.info("Publication successfully created");
+    return data;
+  } catch (error) {
+    console.info("Create publication service error: ", error.message);
     return { success: false };
   }
 };
