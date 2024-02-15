@@ -1,6 +1,8 @@
 import NavBar from "../../components/Navbar"
 import { useLocation } from 'wouter';
-import { useAuthor, useId, useLike, useOnePublication } from "../../hooks"
+import { useAuthor, useDelete, useId, useLike, useOnePublication } from "../../hooks"
+import { useState } from "react";
+import DeleteModal from "../../components/DeleteModal";
 
 const Publication = () => {
     const id = useId()
@@ -22,7 +24,28 @@ const Publication = () => {
     const handleUpdateClick = () => {
         setLocation(`/update/${id}`);
       };
+
+    const [isDeleteModalVisible, setDeleteModalVisible] = useState(false)
+    const [publicationToDelete, setPublicationToDelete] = useState(null)
     
+    const doDelete = useDelete()
+
+    const opdenDeleteModal = (id) => {
+        setPublicationToDelete(id)
+        setDeleteModalVisible(true)
+        return id
+    }
+
+    const handleDelete = () => {
+        if(publicationToDelete) {
+            console.log('Deleting publication with id: ', publicationToDelete)
+            doDelete(publicationToDelete)
+        }
+        setDeleteModalVisible(false)
+    }
+
+    console.log('isDeleteModalVisible: ', isDeleteModalVisible)
+
     return (
         <>
             <NavBar />
@@ -32,6 +55,10 @@ const Publication = () => {
             <p>{author?.data?.content[0]?.username}</p>
             <button onClick={handleLikeClick}>Like</button>
             <button onClick={handleUpdateClick}>Update</button>
+            <button onClick={() => opdenDeleteModal(id)}>Delete</button>
+            {isDeleteModalVisible && (
+                <DeleteModal publicationId={publicationToDelete} isVisible={isDeleteModalVisible} onClose={() => setDeleteModalVisible(false)} onDelete={handleDelete} />
+            )}
         </>
     )
 }
