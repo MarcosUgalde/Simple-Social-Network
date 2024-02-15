@@ -8,14 +8,11 @@ const Publication = () => {
     const id = useId()
     const [, setLocation] = useLocation();
     const publication = useOnePublication({ publicationId: id})
-    console.log('Publication: ', publication)
     const postedById = publication?.data?.content[0]?.posted_by
 
     const author = useAuthor({ authorId: postedById })
-    console.log('Author: ', author)
 
     const doLike = useLike({ publicationId: id })
-    // console.log('Add Like data: ', addLike)
 
     const handleLikeClick = async() => { 
         await doLike()
@@ -38,13 +35,10 @@ const Publication = () => {
 
     const handleDelete = () => {
         if(publicationToDelete) {
-            console.log('Deleting publication with id: ', publicationToDelete)
             doDelete(publicationToDelete)
         }
         setDeleteModalVisible(false)
     }
-
-    console.log('isDeleteModalVisible: ', isDeleteModalVisible)
 
     return (
         <>

@@ -72,10 +72,8 @@ export const updatePublication = (client) => async (params) => {
 
 export const deletePublication = (client) => async (params) => {
   try {
-    const { data } = await client.delete(
-      `publications/${params.publicationId}`,
-      params
-    );
+    console.log("params in delete service: ", params);
+    const { data } = await client.delete(`publications/${params}`, params);
     console.info("Publication delete service deleted the post");
     return data;
   } catch (error) {
