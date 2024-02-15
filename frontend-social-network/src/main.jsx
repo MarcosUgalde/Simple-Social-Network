@@ -9,6 +9,7 @@ import Feed from './pages/Feed/index.jsx'
 import Publication from './pages/Publication/index.jsx'
 import MyProfile from './pages/MyProfile/index.jsx'
 import UpdatePost from './pages/UpdatePost/index.jsx'
+import CreatePost from './pages/CreatePost/index.jsx'
 
 const Main = () => {
   return (
@@ -27,6 +28,9 @@ const Main = () => {
         </Route>
         <Route path='/update/:id'>
           <Guard component={UpdatePost} />
+        </Route>
+        <Route path='/create-post'>
+          <Guard component={CreatePost} />
         </Route>
         <Redirect to='/login' />
       </Switch>
