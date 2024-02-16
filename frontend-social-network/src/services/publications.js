@@ -92,9 +92,11 @@ export const insertPublication = (client) => async (params) => {
   }
 };
 
-export const getAllPublicationsByUser = (client) => async (id) => {
+export const getAllPublicationsByUser = (client) => async (username) => {
   try {
-    const { data: response } = await client.get(`/publications/all/${id}`);
+    const { data: response } = await client.get(
+      `/publications/all/${username}`
+    );
     console.info("Publications by user: ", response);
     return response;
   } catch (error) {

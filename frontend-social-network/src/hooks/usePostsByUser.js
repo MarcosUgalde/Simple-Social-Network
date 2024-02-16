@@ -2,10 +2,10 @@ import { useQuery } from "react-query";
 import { publications } from "../services";
 
 export const usePostsByUser = (props) => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["all", props.authorId],
-    queryFn: publications.getAllPublicationsByUser,
-  });
+  console.log("Props: ", props);
+  const { data, isLoading } = useQuery(["all", props?.username], () =>
+    publications.getAllPublicationsByUser(props?.username)
+  );
 
   return { data, isLoading };
 };
