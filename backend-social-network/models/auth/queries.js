@@ -20,7 +20,7 @@ const selectUserByUsername = (id) => sql.unsafe`
 
 const selectAllUsers = (input) => sql.unsafe`
         SELECT * FROM users
-        WHERE username LIKE %${input}%
+        WHERE username LIKE '%' || ${input} || '%'
 `;
 
 module.exports = {
