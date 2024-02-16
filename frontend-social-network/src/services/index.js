@@ -10,6 +10,7 @@ import {
   updatePublication,
   deletePublication,
   insertPublication,
+  getAllPublicationsByUser,
 } from "./publications";
 
 const client = axios.create({
@@ -32,6 +33,7 @@ const publications = {
   getPublications: selectPublications(client),
   getOnePublication: selectOnePublication(client),
   getAuthor: selectAuthorInformation(client),
+  getAllPublicationsByUser: getAllPublicationsByUser(client),
   addLike: insertLike(client),
   addOneLike: increaseLike(client),
   updatePublication: updatePublication(client),
