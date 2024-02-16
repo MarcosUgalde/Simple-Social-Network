@@ -9,3 +9,4 @@ export { useOneLike } from "./useOneLike";
 export { usePublicationUpdate } from "./usePublicationUpdate";
 export { useDelete } from "./useDelete";
 export { useInsertion } from "./useInsertion";
+export { useSearch } from "./useSearch";

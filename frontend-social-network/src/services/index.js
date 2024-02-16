@@ -1,6 +1,6 @@
 import axios from "axios";
 import { register, logout, signin } from "./auth";
-import { info } from "./user";
+import { info, usersByUsername } from "./user";
 import {
   selectPublications,
   selectOnePublication,
@@ -25,6 +25,7 @@ const auth = {
 
 const user = {
   info: info(client),
+  userSearch: usersByUsername(client),
 };
 
 const publications = {
