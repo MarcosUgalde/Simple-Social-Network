@@ -2,6 +2,7 @@ import { Link, useRoute } from 'wouter'
 import Styled from './styles'
 import { useUser, useLogout } from '../../hooks'
 import { useState } from 'react'
+import SearchInput from '../SearchInput'
 
 const CustomLink = ({ href, children }) => {
     const [isActive] = useRoute(href)
@@ -28,6 +29,7 @@ const NavBar = () => {
 
     return (
         <Styled.Nav>
+            <SearchInput />
             <CustomLink href='/' >Main</CustomLink>
             <CustomLink href='/create-post'>New Post</CustomLink>
             {data && (
