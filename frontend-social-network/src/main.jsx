@@ -10,6 +10,7 @@ import Publication from './pages/Publication/index.jsx'
 import MyProfile from './pages/MyProfile/index.jsx'
 import UpdatePost from './pages/UpdatePost/index.jsx'
 import CreatePost from './pages/CreatePost/index.jsx'
+import UsersSearch from './pages/UsersSearch/index.jsx'
 
 const Main = () => {
   return (
@@ -31,6 +32,9 @@ const Main = () => {
         </Route>
         <Route path='/create-post'>
           <Guard component={CreatePost} />
+        </Route>
+        <Route path='/users-search-result'>
+          <Guard component={UsersSearch} />
         </Route>
         <Redirect to='/login' />
       </Switch>

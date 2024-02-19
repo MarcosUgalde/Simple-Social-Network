@@ -1,5 +1,6 @@
 import NavBar from "../../components/Navbar"
 import { usePostsByUser, useUser } from "../../hooks"
+import { Link } from "wouter"
 
 const MyProfile = () => {
     const user = useUser()
@@ -14,9 +15,9 @@ const MyProfile = () => {
             <h1>{user?.data?.username}</h1>
             <section>
                 {publications?.data?.content?.map((publication) => (
-                    <div key={publication.id}>
+                    <Link href={`/post/${publication.id}`} key={publication.id}>
                         <p>{publication.title}</p>
-                    </div>
+                    </Link>
                 ))}
             </section>
         </>

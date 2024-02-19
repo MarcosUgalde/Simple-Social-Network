@@ -10,12 +10,12 @@ const Publication = () => {
     const publication = useOnePublication({ publicationId: id})
     const postedById = publication?.data?.content[0]?.posted_by
 
-    const author = useAuthor({ authorId: postedById })
+    // const author = useAuthor({ authorId: postedById })
     const user = useUser().data?.username
     console.log(user)
 
     const isAuthor = () => {
-        if(user === author?.data?.content[0]?.username) return true
+        if(user === postedById) return true
         return false
     }
 
@@ -46,6 +46,7 @@ const Publication = () => {
         }
         setDeleteModalVisible(false)
     }
+    console.log('Author: ', publication?.data?.content[0]?.username)
 
     return (
         <>
@@ -53,7 +54,7 @@ const Publication = () => {
             <h1>{publication?.data?.content[0]?.title}</h1>
             <p>{publication?.data?.content[0]?.post_text}</p>
             <p>Liked by {publication?.data?.content[0]?.likes} people</p>
-            <p>{author?.data?.content[0]?.username}</p>
+            <p>{publication?.data?.content[0]?.username}</p>
             <button onClick={handleLikeClick}>Like</button>
             {isAuthor() && (
                <button onClick={handleUpdateClick}>Update</button>
