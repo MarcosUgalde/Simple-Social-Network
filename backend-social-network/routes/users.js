@@ -7,7 +7,11 @@ const publicationControllers = require("../controllers/publications");
 module.exports = (db) => {
   router.get("/", authorizer(), userControllers.getUser());
   //   router.get("/all", authorizer(), userControllers.getAllUsers(db));
-  router.get("/search-result", authorizer(), userControllers.getByUsername(db));
+  router.get(
+    "/search-result/:username",
+    authorizer(),
+    userControllers.getByUsername(db)
+  );
   router.get(
     "/:id",
     authorizer(),
