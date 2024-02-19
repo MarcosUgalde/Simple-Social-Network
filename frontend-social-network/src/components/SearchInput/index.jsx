@@ -1,14 +1,9 @@
 import { useState } from "react";
-// import { useSearch } from "../../hooks";
 import { useLocation } from "wouter";
 
 const SearchInput = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [, setLocation] = useLocation();
-//   const { isLoading, data } = useSearch(searchQuery)
-    // const { isLoading } = useSearch(searchQuery)
-    // const doSearch = useSearch()
-    // console.log('doSearch: ', doSearch)
 
   const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
