@@ -9,10 +9,10 @@ INSERT INTO publications (
 `;
 
 const selectPublicationsByUser = (username) => sql.unsafe`
-        SELECT * FROM publications
+        SELECT publications.id, publications.title, publications.post_text, publications.likes, publications.posted_by, users.username FROM publications
         JOIN users
         ON users.id = publications.posted_by
-        WHERE username = ${username}
+        WHERE users.username = ${username}
 `;
 
 const selectPublications = () => sql.unsafe`
@@ -20,8 +20,10 @@ const selectPublications = () => sql.unsafe`
 `;
 
 const selectOnePublication = (id) => sql.unsafe`
-        SELECT * FROM publications
-        WHERE id = ${id}
+        SELECT publications.title, publications.post_text, publications.likes, publications.posted_by, users.username FROM publications
+        JOIN users
+        ON publications.posted_by = users.id
+        WHERE publications.id = ${id}
 `;
 
 const insertLike = (post_id_liked, user_id, liked) => sql.unsafe`
