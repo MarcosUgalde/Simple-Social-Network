@@ -15,7 +15,7 @@ const Publication = () => {
     console.log(user)
 
     const isAuthor = () => {
-        if(user === postedById) return true
+        if(user === publication?.data?.content[0]?.username) return true
         return false
     }
 
