@@ -1,6 +1,6 @@
 import NavBar from "../../components/Navbar"
 import { useLocation } from 'wouter';
-import { useAuthor, useDelete, useId, useLike, useOnePublication, useUser } from "../../hooks"
+import { useDelete, useId, useLike, useOnePublication, useUser } from "../../hooks"
 import { useState } from "react";
 import DeleteModal from "../../components/DeleteModal";
 
@@ -8,11 +8,8 @@ const Publication = () => {
     const id = useId()
     const [, setLocation] = useLocation();
     const publication = useOnePublication({ publicationId: id})
-    const postedById = publication?.data?.content[0]?.posted_by
 
-    // const author = useAuthor({ authorId: postedById })
     const user = useUser().data?.username
-    console.log(user)
 
     const isAuthor = () => {
         if(user === publication?.data?.content[0]?.username) return true
@@ -46,7 +43,6 @@ const Publication = () => {
         }
         setDeleteModalVisible(false)
     }
-    console.log('Author: ', publication?.data?.content[0]?.username)
 
     return (
         <>

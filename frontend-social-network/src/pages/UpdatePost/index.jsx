@@ -1,16 +1,11 @@
 import { useForm } from "react-hook-form"
 import NavBar from "../../components/Navbar"
-import { useAuthor, useId, useOnePublication, usePublicationUpdate } from "../../hooks"
+import { useId, useOnePublication, usePublicationUpdate } from "../../hooks"
 
 function UpdatePost () {
     const { register, handleSubmit } = useForm()
     const id = useId()
     const publication = useOnePublication({ publicationId: id})
-    console.log('Publication: ', publication)
-    const postedById = publication?.data?.content[0]?.posted_by
-
-    const author = useAuthor({ authorId: postedById })
-    console.log('Author: ', author)
 
     const doUpdate = usePublicationUpdate({ publicationId: id })
 
