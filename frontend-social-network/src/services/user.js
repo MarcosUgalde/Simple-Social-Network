@@ -11,13 +11,14 @@ export const info = (client) => async () => {
 
 export const usersByUsername = (client) => async (params) => {
   try {
-    const queryParams = params || {};
-    console.log("params: ", params);
-    const { data: response } = await client.get("/user/search-result", {
-      params: queryParams,
-    });
+    // const queryParams = { username: params };
+    console.log("params received in service: ", params);
+    const { data: response } = await client.get(
+      `/user/search-result/${params?.name}`,
+      params
+    );
     console.info("Users searched: ", response);
-    return response.data;
+    return response.content;
   } catch (error) {
     console.info("Users search by username service error: ", error.message);
     return { success: false, error: error.message };
