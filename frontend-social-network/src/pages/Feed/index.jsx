@@ -11,16 +11,18 @@ const Feed = () => {
     return (
         <>
             <NavBar />
-            <h1>Welcome back {user}!</h1>
-            <Styled.List>
-                {response?.content?.map((publication) => {
-                    return (
-                        <section>
-                            <li> <a href={`/post/${publication.id}`}>{publication.title}</a> - Liked by: {publication.likes} people</li>
-                        </section>
-                    )
-                })}
-            </Styled.List>
+            <Styled.Body>
+                <h1>Welcome back {user}!</h1>
+                <Styled.List>
+                    {response?.content?.map((publication) => {
+                        return (
+                            <Styled.Item>
+                                <Styled.Li> <Styled.Anchor href={`/post/${publication.id}`}>{publication.title}</Styled.Anchor> <br /> Liked by: {publication.likes} people</Styled.Li>
+                            </Styled.Item>
+                        )
+                    })}
+                </Styled.List>
+            </Styled.Body>
         </>
     )
 }
