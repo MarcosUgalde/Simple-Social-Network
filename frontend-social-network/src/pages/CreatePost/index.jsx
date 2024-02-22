@@ -18,7 +18,7 @@ const CreatePost = () => {
                     </Styled.Field>
                     <Styled.Field>
                         <label htmlFor="post_text">Insert text</label>
-                        <Styled.Input type="text" name="post_text" id="post_text" {...register('post_text', {required: true})} />
+                        <Styled.Text type="text" name="post_text" id="post_text" {...register('post_text', {required: true})} />
                     </Styled.Field>
                     <Styled.Submit type="submit" />
                 </Styled.Form>

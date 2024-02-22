@@ -30,6 +30,16 @@ const Input = styled.input`
     border: 1px solid;
     height: 1.5em;
     box-shadow: 1px 5px 8px -4px rgba(0,0,0,0.75);
+    width: 250px;
+`
+
+const Text = styled.input`
+    border-radius: 10px;
+    border: 1px solid;
+    height: 1.5em;
+    box-shadow: 1px 5px 8px -4px rgba(0,0,0,0.75);
+    width: 250px;
+    height: 360px;
 `
 
 const Submit = styled.input`
@@ -59,6 +69,7 @@ export default {
     Body,
     Form,
     Input,
+    Text,
     Submit,
     Field
 }
